@@ -2,7 +2,9 @@
   :init
   (setq lsp-keymap-prefix "C-c l"
         lsp-session-file (expand-file-name "lsp-session" user-emacs-directory)
-        lsp-server-install-dir (expand-file-name "lsp-server" user-emacs-directory))
+        lsp-server-install-dir (expand-file-name "lsp-server" user-emacs-directory)
+
+        lsp-inlay-hint-enable t)
 
   :hook
   (rust-mode . lsp)

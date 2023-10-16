@@ -2,7 +2,7 @@
   :config
   (setq word-wrap t
         truncate-lines t)
-  (global-hl-line-mode)
+  ;; (global-hl-line-mode)
   (electric-pair-mode)
   :hook
   (prog-mode . hs-minor-mode))

@@ -110,6 +110,7 @@
                                                  (concat auto-save-list-file-prefix "tramp-\\2") t)
                                            (list ".*" auto-save-list-file-prefix t)))
 
+;;; Force indentaiton to always use spaces
 
 (setq-default indent-tabs-mode nil
 	      default-tab-width 4)

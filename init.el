@@ -59,6 +59,13 @@
 
 (require 'init-git)
 
+(require 'init-treesitter)
+;;; Language specifical config
+
+
+(require 'init-rust)
+
+
 ;;; Load custom file
 (when (file-exists-p custom-file)
   (load custom-file))
