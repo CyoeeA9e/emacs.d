@@ -15,7 +15,7 @@
 ;;; ustc mirrors
 (setq package-archives '(("gnu"   . "http://mirrors.ustc.edu.cn/elpa/gnu/")
                          ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
-                         ("org"   . "http://mirrors.ustc.edu.cn/elpa/org/")))
+                         ("nongnu"   . "http://mirrors.ustc.edu.cn/elpa/nongnu/")))
 
 
 (setq package-enable-at-startup nil)

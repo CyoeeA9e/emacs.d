@@ -1,4 +1,4 @@
 *.elc
 custom.el
-.*
+.local/
 elpa-*/
