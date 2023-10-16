@@ -11,17 +11,18 @@
 
 (setq root-emacs-directory user-emacs-directory)
 
-;; (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-(setq user-emacs-directory (expand-file-name "user/" root-emacs-directory))
-
-
+;; 
+(setq user-emacs-directory (expand-file-name ".local" root-emacs-directory))
 
 (if (not (file-exists-p user-emacs-directory))
     (make-directory user-emacs-directory t))
+
+
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
