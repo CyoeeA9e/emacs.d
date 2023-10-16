@@ -1,8 +1,8 @@
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l"
-        lsp-session-file (concat +emacs-cache-dir "lsp-session")
-        lsp-server-install-dir (concat +emacs-local-dir "lsp-server"))
+        lsp-session-file (expand-file-name "lsp-session" user-emacs-directory)
+        lsp-server-install-dir (expand-file-name "lsp-server" user-emacs-directory))
 
   :hook
   (rust-mode . lsp)

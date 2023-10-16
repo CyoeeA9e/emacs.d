@@ -25,6 +25,7 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic nil)
-  (load-theme 'doom-one t))
+  (load-theme 'doom-one-light t))
 
 (provide 'init-theme)
+;;; init-theme.el ends here

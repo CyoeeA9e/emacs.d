@@ -17,14 +17,14 @@
            load-path))))
 
 ;; Add both site-lisp and its immediate subdirs to `load-path'
-(let ((site-lisp-dir (expand-file-name "site-lisp/" user-emacs-directory)))
+(let ((site-lisp-dir (expand-file-name "site-lisp/" root-emacs-directory)))
   (push site-lisp-dir load-path)
   (sanityinc/add-subdirs-to-load-path site-lisp-dir))
 
 ;;; Utilities for grabbing upstream libs
 
 (defun site-lisp-dir-for (name)
-  (expand-file-name (format "site-lisp/%s" name) user-emacs-directory))
+  (expand-file-name (format "site-lisp/%s" name) root-emacs-directory))
 
 (defun site-lisp-library-el-path (name)
   (expand-file-name (format "%s.el" name) (site-lisp-dir-for name)))

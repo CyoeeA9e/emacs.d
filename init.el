@@ -7,14 +7,21 @@
 ;;; Code:
 
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
-;;(setq debug-on-error t)
+(setq debug-on-error t)
+
+(setq root-emacs-directory user-emacs-directory)
+
+;; (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file (locate-user-emacs-file "custom.el"))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-(defconst +emacs-local-dir (concat user-emacs-directory ".local/"))
-(defconst +emacs-cache-dir (concat user-emacs-directory ".cache/"))
-(defconst +emacs-etc-dir (concat +emacs-local-dir "etc/"))
-(defconst +emacs-docs-dir (concat +emacs-local-dir "docs/"))
+(setq user-emacs-directory (expand-file-name "user/" root-emacs-directory))
+
+
+
+(if (not (file-exists-p user-emacs-directory))
+    (make-directory user-emacs-directory t))
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
@@ -34,8 +41,6 @@
 
 ;; Bootstrap config
 
-(setq custom-file (locate-user-emacs-file "custom.el"))
-
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 ;; Calls (package-initialize)
@@ -46,7 +51,13 @@
 (require 'init-corfu)
 (require 'init-minibuffer)
 
+(require 'init-editor)
+
 (require 'init-flycheck)
 (require 'init-lsp)
 
 (require 'init-git)
+
+;;; Load custom file
+(when (file-exists-p custom-file)
+  (load custom-file))

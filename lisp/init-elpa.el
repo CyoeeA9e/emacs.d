@@ -5,7 +5,6 @@
 (require 'package)
 (require 'cl-lib)
 
-
 ;;; Install into separate package dirs for each Emacs version, to prevent bytecode incompatibility
 (setq package-user-dir
       (expand-file-name (format "elpa-%s.%s" emacs-major-version emacs-minor-version)
@@ -39,8 +38,8 @@
 
 (require 'use-package)
 
-;;; (setq package-check-signature nil)
-(let ((package-check-signature nil))
-  (use-package gnu-elpa-keyring-update))
+(setq package-check-signature nil)
+;;(let ((package-check-signature nil))
+;;  (use-package gnu-elpa-keyring-update))
 
 (provide 'init-elpa)

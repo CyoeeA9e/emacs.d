@@ -13,8 +13,9 @@
   (vertico-mode t))
 
 (use-package savehist
-  :init
+  :config
   (savehist-mode))
+  
 
 (use-package consult)
 

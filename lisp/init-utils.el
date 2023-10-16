@@ -73,7 +73,7 @@
       (browse-url (concat "file://" file-name)))))
 
 ;; Recentf setting
-(setq recentf-save-file (concat +emacs-cache-dir "recentf")
+(setq recentf-save-file (expand-file-name "recentf" user-emacs-directory)
       recentf-max-menu-items 25
       recentf-max-saved-items 25)
 
@@ -87,15 +87,15 @@
 
 ;;; Backup
 
-(setq +backup-directory (concat +emacs-cache-dir "backup/"))
+(setq backup-directory (expand-file-name "backup" user-emacs-directory))
 
-(unless (file-exists-p +backup-directory)
-  (make-directory +backup-directory t))
+(unless (file-exists-p backup-directory)
+  (make-directory backup-directory t))
 
 (setq create-lockfiles nil
       make-backupfiles nil
       backup-by-copying t
-      backup-directory-alist (list (cons ".*" +backup-directory))
+      backup-directory-alist (list (cons ".*" backup-directory))
       delete-old-versions t
       kept-new-versions 3
       kept-old-versions 1
@@ -103,8 +103,8 @@
 
       auto-save-default t
       auto-save-include-big-deletions t
-      auto-save-list-file-prefix (concat +emacs-cache-dir "autosave/")
-      tramp-auto-save-directory  (concat +emacs-cache-dir "tramp-autosave/")
+      auto-save-list-file-prefix (expand-file-name "autosave/" user-emacs-directory)
+      tramp-auto-save-directory  (expand-file-name "tramp-autosave/" user-emacs-directory)
       auto-save-file-name-transforms (list (list "\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'"
 						 ;; Prefix tramp autosaves to prevent conflicts with local ones
                                                  (concat auto-save-list-file-prefix "tramp-\\2") t)
@@ -119,7 +119,7 @@
 (defun open-init-file()
   "Open init.el"
   (interactive)
-  (find-file (concat user-emacs-directory "init.el")))
+  (find-file (expand-file-name "init.el" user-emacs-directory)))
 
 (provide 'init-utils)
 ;;; init-utils.el ends here
