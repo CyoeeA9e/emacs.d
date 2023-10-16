@@ -1,3 +1,13 @@
+(use-package kind-icon
+  :ensure t
+  :after corfu
+  :custom
+  (kind-icon-default-face 'corfu-default)
+
+  :config
+  (setq kind-icon-use-icons nil)
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
 (use-package corfu
   :custom
   (corfu-cycle t)
@@ -15,6 +25,11 @@
         ([backtab] . corfu-previous))
   :init
   (global-corfu-mode))
+
+(use-package corfu-terminal
+  :config
+  (unless (display-graphic-p)
+    (corfu-terminal-mode t)))
 
 (use-package orderless
   :ensure t
