@@ -37,9 +37,6 @@
   (add-hook 'emacs-startup-hook
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
-;;; Map Command to Meta in mac
-(setq mac-command-modifier 'meta)
-
 ;; Bootstrap config
 
 (require 'init-utils)
